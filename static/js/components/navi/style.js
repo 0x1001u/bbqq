@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const NavWrap = styled.nav`
     height: .96rem;
@@ -25,4 +25,4 @@ export const NavWrap = styled.nav`
     a.active{
         border-bottom:.07rem solid #434669 ;
     }
-`;
+`

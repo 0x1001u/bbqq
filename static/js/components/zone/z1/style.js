@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Brandinfo1Warp = styled.section`
     margin-top: .42rem;

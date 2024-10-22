@@ -1,8 +1,8 @@
-import { log as actionLog } from "../ActionLog";
-import { getCookie } from "../../../libs/Cookie";
-import { getCurrentUrl } from "../../../libs/UrlUtils";
-import { getChannelCode } from "../../../libs/channel";
-import { getClient } from "../../../libs/EnvUtils";
+import {log as actionLog} from "../ActionLog";
+import {getCookie} from '../../../libs/Cookie'
+import {getCurrentUrl} from '../../../libs/UrlUtils';
+import {getChannelCode} from "../../../libs/channel";
+import {getClient} from "../../../libs/EnvUtils";
 
 /**
  * 所属渠道：通用
@@ -15,21 +15,21 @@ import { getClient } from "../../../libs/EnvUtils";
  * @param tagType
  */
 export const log = (id, tagType) => {
-  actionLog({
-    uid: getCookie("uid"),
-    model: getCookie("model"),
-    cid: getCookie("cid"),
-    bid: getCookie("bid"),
-    eid: getCookie("eid"),
-    url: getCurrentUrl(),
-    level: getCookie("level"),
-    channel: getChannelCode(),
-    client: getClient(),
-    page: "p1",
-    method: "m3",
-    act: "a113" + tagType + "_" + id,
-  });
-};
+    actionLog({
+        uid: getCookie("uid"),
+        model: getCookie("model"),
+        cid: getCookie("cid"),
+        bid: getCookie("bid"),
+        eid: getCookie("eid"),
+        url: getCurrentUrl(),
+        level: getCookie("level"),
+        channel: getChannelCode(),
+        client: getClient(),
+        page: "p1",
+        method: "m3",
+        act: "a113" + tagType + "_" + id
+    });
+}
 
 // 固定标签
 export const TAG1 = "tag1";

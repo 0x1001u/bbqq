@@ -5,7 +5,7 @@
  * @LastEditors: yuxiaosong
  * @LastEditTime: 2022-02-16 13:27:54
  */
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Brandinfo4Warp = styled.section`
     margin-top: .42rem;

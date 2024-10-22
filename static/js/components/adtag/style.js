@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const SliderWarp = styled.section`
 margin-top: .2rem;

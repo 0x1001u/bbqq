@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 export const CarbonReductionWarp = styled.section`
     height: 1.58rem;
     background: linear-gradient(93deg,#2fc14c 2%, #3bca30 97%);

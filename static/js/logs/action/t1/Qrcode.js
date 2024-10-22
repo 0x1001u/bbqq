@@ -1,8 +1,8 @@
-import { log as actionLog } from "../ActionLog";
-import { getCookie } from "../../../libs/Cookie";
-import { getCurrentUrl } from "../../../libs/UrlUtils";
-import { getClient } from "../../../libs/EnvUtils";
-import { getChannelCode } from "../../../libs/channel";
+import {log as actionLog} from "../ActionLog";
+import {getCookie} from '../../../libs/Cookie'
+import {getCurrentUrl} from '../../../libs/UrlUtils';
+import {getClient} from "../../../libs/EnvUtils";
+import {getChannelCode} from "../../../libs/channel";
 
 /**
  * 所属渠道：通用
@@ -12,18 +12,18 @@ import { getChannelCode } from "../../../libs/channel";
  * 记录内容：二维码图点击
  */
 export const log = () => {
-  actionLog({
-    uid: getCookie("uid"),
-    model: getCookie("model"),
-    cid: getCookie("cid"),
-    bid: getCookie("bid"),
-    eid: getCookie("eid"),
-    url: getCurrentUrl(),
-    level: getCookie("level"),
-    channel: getChannelCode(),
-    client: getClient(),
-    page: "p1",
-    method: "m3",
-    act: "a113qrcode",
-  });
-};
+    actionLog({
+        uid: getCookie("uid"),
+        model: getCookie("model"),
+        cid: getCookie("cid"),
+        bid: getCookie("bid"),
+        eid: getCookie("eid"),
+        url: getCurrentUrl(),
+        level: getCookie("level"),
+        channel: getChannelCode(),
+        client: getClient(),
+        page: "p1",
+        method: "m3",
+        act: "a113qrcode"
+    });
+}

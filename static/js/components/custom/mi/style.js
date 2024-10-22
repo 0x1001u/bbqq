@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { isPro } from "../../../libs/EnvUtils";
+import styled from 'styled-components';
+import {isPro} from '../../../libs/EnvUtils';
 
-export const MiWarp = isPro()
-  ? styled.section`
+export const MiWarp = isPro() ?
+    styled.section`
      margin-top: .24rem;
     .template-bg{
         
@@ -87,7 +87,8 @@ export const MiWarp = isPro()
         
     }
 `
-  : styled.section`
+    :
+    styled.section`
      margin-top: .24rem;
     .template-bg{
         
@@ -171,4 +172,5 @@ export const MiWarp = isPro()
         }
         
     }
-`;
+`
+;

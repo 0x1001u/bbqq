@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 export const RadarWarp = styled.section`
     margin-top: .42rem;
     .radarColmn{
@@ -61,4 +61,4 @@ export const RadarWarp = styled.section`
             }
         }
     }   
-`;
+`

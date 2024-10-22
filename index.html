@@ -1,117 +1,298 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="能效信息展⽰⻚" />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="能效信息展示页">
     <title>中国能效标识</title>
-    <script src="./tempConfig.js"></script>
-    <link
-      href="https://ela.bbqk.com/static/css/indexDefault.d4b91b5f.chunk.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <div style="text-align: center; font-size: 8px">
-      <a href="https://beian.miit.gov.cn" target="_blank"
-        >京ICP备14039590号-3</a
-      >
+    <link href="static/css/indexDefault.d4b91b5f.chunk.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <style>
+        .slider {
+            margin: 20px;
+        }
+        .slideItem img {
+            width: 100%;
+            height: auto;
+        }
+        /* 其他样式 */
+    </style>
+    <style data-styled="active" data-styled-version="5.3.0" data-savepage-sheetrules="">.jvCTkj { height: 0.96rem; background: rgb(255, 255, 255); display: flex; -moz-box-align: center; align-items: center; box-sizing: content-box; padding: 0px 0.3rem; }.jvCTkj a { font-size: 0.3rem; font-weight: 400; text-align: center; color: rgb(67, 70, 105); margin-right: 0.33rem; display: flex; height: 100%; -moz-box-align: center; align-items: center; border-bottom: 0.07rem solid rgb(255, 255, 255); }.jvCTkj a img { width: 1.3rem; height: 0.37rem; }.jvCTkj a.active { border-bottom: 0.07rem solid rgb(67, 70, 105); }.gfuSqG { margin-top: 0.42rem; }.gfuSqG .radarColmn h2.title { display: flex; -moz-box-pack: justify; justify-content: space-between; -moz-box-align: center; align-items: center; font-size: 0.34rem; font-weight: 600; color: rgb(67, 70, 105); margin-bottom: 0.31rem; padding-right: 0.2rem; }.gfuSqG .radarColmn h2.title i { font-size: 0.3rem; color: rgb(31, 98, 255); }.gfuSqG .radarColmn h2.title a { font-size: 0.22rem; font-weight: 400; color: rgba(12, 16, 57, 0.5); display: flex; -moz-box-pack: center; justify-content: center; -moz-box-align: center; align-items: center; width: 1.1rem; height: 0.52rem; border: 0.01rem solid rgba(93, 96, 125, 0.3); border-radius: 0.27rem; }.gfuSqG .radarColmn .radarUnitWarp { display: flex; justify-content: space-around; margin-top: 0.26rem; background: rgb(255, 255, 255); border-radius: 0.12rem; box-shadow: rgba(0, 36, 96, 0.06) 0px 0.04rem 0.16rem 0px; padding: 0.34rem 0.4rem; }.gfuSqG .radarColmn .radarUnit dt, .gfuSqG .radarColmn .radarUnit dt img { width: 0.76rem; height: 0.76rem; }.gfuSqG .radarColmn .radarUnit dd:nth-of-type(1) { font-size: 0.26rem; font-weight: 400; text-align: center; color: rgb(12, 16, 57); margin: 0.05rem 0px; }.gfuSqG .radarColmn .radarUnit dd:nth-of-type(2) { font-size: 0.18rem; font-weight: 400; color: rgb(182, 183, 195); text-align: center; }.gfuSqG .radarColmn .radarUnit dd:nth-of-type(2) i { color: rgb(31, 98, 255); }.dJXsSm { margin-top: 0.2rem; }.dJXsSm .slider { width: 7.1rem; background: rgb(255, 255, 255); border-radius: 0.12rem; box-shadow: rgba(0, 36, 96, 0.04) 0px 0px 20px 0px; margin: 0px auto; height: 3.1rem; padding-top: 0.2rem; }.dJXsSm .brandinfo1 { width: 6.3rem; background: transparent; border-radius: 0.12rem; box-shadow: rgba(0, 36, 96, 0.04) 0px 0px 20px 0px; height: 3.65rem; margin-top: 0.16rem; padding-top: 0px; }.dJXsSm .slider .slideCont { display: flex; -moz-box-align: center; align-items: center; flex-wrap: wrap; -moz-box-pack: center; justify-content: center; }.dJXsSm .slider .slideCont img { width: 6.7rem; height: 2.51rem; }.dJXsSm .brandinfo1 .slideCont img { width: 6.3rem; height: 3rem; border-radius: 0.12rem; }.dJXsSm .slick-slider { position: relative; display: block; box-sizing: border-box; user-select: none; touch-action: pan-y; }.dJXsSm .slick-list { position: relative; display: block; overflow: hidden; margin: 0px; padding: 0px; }.dJXsSm .slick-list:focus { outline: none; }.dJXsSm .slick-list.dragging { cursor: pointer; }.dJXsSm .slick-slider .slick-track, .dJXsSm .slick-slider .slick-list { transform: translate3d(0px, 0px, 0px); }.dJXsSm .slick-track { position: relative; top: 0px; left: 0px; display: block; margin-left: auto; margin-right: auto; }.dJXsSm .slick-track::before, .dJXsSm .slick-track::after { display: table; content: ""; }.dJXsSm .slick-track::after { clear: both; }.dJXsSm .slick-loading .slick-track { visibility: hidden; }.dJXsSm .slick-slide { display: none; float: left; height: 100%; min-height: 1px; }.dJXsSm [dir="rtl"] .slick-slide { float: right; }.dJXsSm .slick-slide img { display: block; }.dJXsSm .slick-slide.slick-loading img { display: none; }.dJXsSm .slick-slide.dragging img { pointer-events: none; }.dJXsSm .slick-initialized .slick-slide { display: block; }.dJXsSm .slick-loading .slick-slide { visibility: hidden; }.dJXsSm .slick-vertical .slick-slide { display: block; height: auto; border: 1px solid transparent; }.dJXsSm .slick-arrow.slick-hidden { display: none; }.dJXsSm .slick-prev, .dJXsSm .slick-next { font-size: 0px; line-height: 0; position: absolute; top: 50%; display: none !important; width: 20px; height: 20px; padding: 0px; transform: translate(0px, -50%); cursor: pointer; color: transparent; border: medium; outline: none; background: transparent; }.dJXsSm .slick-prev:hover, .dJXsSm .slick-prev:focus, .dJXsSm .slick-next:hover, .dJXsSm .slick-next:focus { color: transparent; outline: none; background: transparent; }.dJXsSm .slick-prev:hover::before, .dJXsSm .slick-prev:focus::before, .dJXsSm .slick-next:hover::before, .dJXsSm .slick-next:focus::before { opacity: 1; }.dJXsSm .slick-prev.slick-disabled::before, .dJXsSm .slick-next.slick-disabled::before { opacity: 0.25; }.dJXsSm .slick-prev::before, .dJXsSm .slick-next::before { font-family: "slick"; font-size: 20px; line-height: 1; opacity: 0.75; color: white; }.dJXsSm .slick-prev { left: -25px; }.dJXsSm [dir="rtl"] .slick-prev { right: -25px; left: auto; }.dJXsSm .slick-prev::before { content: "←"; }.dJXsSm [dir="rtl"] .slick-prev::before { content: "→"; }.dJXsSm .slick-next { right: -25px; }.dJXsSm [dir="rtl"] .slick-next { right: auto; left: -25px; }.dJXsSm .slick-next::before { content: "→"; }.dJXsSm [dir="rtl"] .slick-next::before { content: "←"; }.dJXsSm .slick-dotted.slick-slider { margin-bottom: 30px; }.dJXsSm .slick-dots { position: absolute; bottom: -0.15rem; display: block; width: 100%; padding: 0px; margin: 0px; list-style: none; text-align: center; }.dJXsSm .slick-dots li { position: relative; display: inline-block; width: 0.1rem; height: 0.2rem; margin: 0px 3px; padding: 0px; cursor: pointer; }.dJXsSm .slick-dots li button { font-size: 0px; line-height: 0; display: block; width: 20px; height: 20px; padding: 5px; cursor: pointer; color: transparent; border: 0px; outline: none; background: transparent; }.dJXsSm .slick-dots li button:hover, .dJXsSm .slick-dots li button:focus { outline: none; }.dJXsSm .slick-dots li button:hover::before, .dJXsSm .slick-dots li button:focus::before { opacity: 1; }.dJXsSm .slick-dots li button::before { font-family: "slick"; font-size: 6px; line-height: 20px; position: absolute; top: 0px; left: 0px; width: 20px; height: 20px; content: "•"; text-align: center; opacity: 0.25; color: black; }.dJXsSm .brandinfo1 .slick-dots li button::before { color: rgb(255, 255, 255); top: 0.14rem; width: 0.09rem; height: 0.09rem; }.dJXsSm .slick-dots li.slick-active button::before { opacity: 0.75; color: black; }.dJXsSm .brandinfo1 .slick-dots li.slick-active button::before { color: rgb(255, 255, 255); opacity: 0.85; }.jcTaHb { margin-top: 0.42rem; }.jcTaHb h2 { display: flex; -moz-box-pack: justify; justify-content: space-between; -moz-box-align: center; align-items: center; font-size: 0.34rem; font-weight: 600; color: rgb(67, 70, 105); margin-bottom: 0.31rem; padding-right: 0.2rem; }.jcTaHb h2 a { font-size: 0.22rem; font-weight: 400; color: rgba(12, 16, 57, 0.5); display: flex; -moz-box-pack: center; justify-content: center; -moz-box-align: center; align-items: center; width: 1.1rem; height: 0.52rem; border: 0.01rem solid rgba(93, 96, 125, 0.3); border-radius: 0.27rem; }.jcTaHb .block { background: rgb(255, 255, 255); border-radius: 0.12rem; box-shadow: rgba(0, 36, 96, 0.04) 0px 0px 0.2rem 0px; padding: 0.29rem; }.jcTaHb .block .nav { display: flex; -moz-box-pack: justify; justify-content: space-between; -moz-box-align: center; align-items: center; }.jcTaHb .block .nav-item { font-size: 0.3rem; font-weight: 400; color: rgb(67, 70, 105); border-bottom: 3px solid rgb(255, 255, 255); padding-bottom: 0.05rem; }.jcTaHb .block .nav-item.active { color: rgb(0, 122, 255); border-bottom: 3px solid rgb(0, 122, 255); }.jcTaHb .block .cont { margin-top: 0.24rem; }.jcTaHb .block .cont img { width: 6.5rem; height: 2.72rem; }.hydYaP { background: rgb(31, 98, 255); border-radius: 0.12rem; box-shadow: rgba(0, 36, 96, 0.16) 0px 0.04rem 0.16rem 0px; display: flex; -moz-box-pack: justify; justify-content: space-between; padding: 0.3rem; }.hydYaP .left { display: flex; flex-direction: column; }.hydYaP .left h1 { font-size: 0.3rem; font-weight: 500; color: rgb(255, 255, 255); margin-bottom: 0.15rem; }.hydYaP .left p { font-size: 0.22rem; font-weight: 400; color: rgba(255, 255, 255, 0.7); margin-bottom: 0.1rem; }.hydYaP .right { display: flex; flex-direction: column; }.hydYaP .right img { width: 1.23rem; height: 1.23rem; margin-top: 0.08rem; }.hydYaP .right div { font-size: 0.22rem; font-weight: 400; color: rgba(255, 255, 255, 0.7); margin-top: 0.45rem; }.hydYaP .extendBlock { padding: 0px 0.4rem; }.hydYaP .extendBlock h2 { height: 0.48rem; font-size: 0.34rem; font-weight: 500; color: rgb(67, 70, 105); line-height: 0.48rem; margin: 0.4rem 0px; }.hydYaP .extendBlock .listItem { display: flex; -moz-box-pack: justify; justify-content: space-between; margin-bottom: 0.2rem; }.hydYaP .extendBlock .listItem .itemKey { font-size: 0.32rem; font-weight: 400; color: rgba(12, 16, 57, 0.5); }.hydYaP .extendBlock .listItem .itemVal { font-size: 0.32rem; font-weight: 500; color: rgba(12, 16, 57, 0.5); }.hydYaP .statement { height: 0.5rem; font-size: 0.26rem; font-weight: 400; color: rgb(0, 152, 255); line-height: 0.5rem; display: flex; -moz-box-pack: start; justify-content: flex-start; -moz-box-align: center; align-items: center; margin: 0.73rem 0px 0.39rem; }.hydYaP .statement img { width: 0.38rem; height: 0.38rem; margin-right: 0.13rem; }.hydYaP .extendList { height: 4.5rem; overflow-y: scroll; }.hydYaP .extendList li { font-size: 0.32rem; font-weight: 400; color: rgba(12, 16, 57, 0.5); margin-bottom: 0.2rem; }.hydYaP .extendBlock table { width: 100%; height: 4.8rem; overflow-y: scroll; display: block; }.hydYaP .extendBlock table th, .hydYaP .extendBlock table td { font-size: 0.32rem; font-weight: normal; text-align: center; border: 1px solid rgb(204, 204, 204); padding: 0.1rem; }.hydYaP .hidden { display: none; }.hydYaP .recodeParamWrap { height: 7rem; overflow-y: auto; }.jEEywD { margin-top: 0.42rem; }.jEEywD h2 { display: flex; -moz-box-pack: justify; justify-content: space-between; -moz-box-align: center; align-items: center; font-size: 0.34rem; font-weight: 600; color: rgb(67, 70, 105); margin-bottom: 0.31rem; padding-right: 0.2rem; }.jEEywD h2 a { font-size: 0.22rem; font-weight: 400; color: rgba(12, 16, 57, 0.5); }.iPexDg { background: rgb(255, 255, 255); border-radius: 0.12rem; box-shadow: rgba(0, 36, 96, 0.04) 0px 0px 0.2rem 0px; display: flex; -moz-box-pack: justify; justify-content: space-between; -moz-box-align: center; align-items: center; padding: 0.34rem 0.3rem; margin-bottom: 0.3rem; }.iPexDg .title { display: flex; -moz-box-pack: justify; justify-content: space-between; -moz-box-align: center; align-items: center; font-size: 0.34rem; font-weight: 600; color: rgb(67, 70, 105); }.iPexDg .title img { height: 0.9rem; margin-right: 0.26rem; }.iPexDg img.right { width: 0.15rem; height: 0.25rem; }.kpPvTx { text-align: center; margin: 0.5rem 0px; }.kpPvTx img { width: 2.5rem; }</style>
+</head>
+<body>
+    <div id="root">
+        <div class="home" style="display: block;">
+            <nav class="sc-bdnxRM jvCTkj">
+                <a class="active">首页</a>
+            </nav>
+            <article class="content">
+                <section class="sc-gKAaRy hydYaP">
+                    <div class="hidden">
+                        <h1>中国能效标识</h1>
+                        <p><label>该型号正在备案中</label></p>
+                    </div>
+                    <div class="hidden">
+                        <h1>中国能效标识</h1>
+                        <p><label>该型号备案已撤销</label></p>
+                        <p><label>撤销原因:质量抽查能效不合格</label></p>
+                        <p><label>详情请访问“中国能效标识网”查询</label></p>
+                        <p><label>网址：https://www.energylabelrecord.com</label></p>
+                    </div>
+                    <div class="left">
+                        <h1>中国能效标识</h1>
+                        <p><label>型号：</label><span>SCWE510M Z7</span></p>
+                        <p><label>备案号：</label><span>20240701-501200-27871719816300115</span></p>
+                        <p><label>公告时间：</label><span>2024-07-01</span></p>
+                        <p><label>生产者名称：</label><span>重庆美的通用制冷设备有限公司</span></p>
+                    </div>
+                    <div class="right">
+                        <img alt="能效2级" src="assets/bbqk/img/level2.png">
+                        <div>查看详情 &gt;</div>
+                    </div>
+                </section>
+                <section class="sc-dlnjwi dJXsSm">
+                      <div class="slider">
+        <div class="slick-slider slick-initialized" dir="ltr">
+            <button type="button" data-role="none" class="slick-arrow slick-prev" style="display: block;">Previous</button>
+            <div class="slick-list">
+                <div class="slick-track" style="opacity: 1; transform: translate3d(-1023px, 0px, 0px); width: 3069px;">
+                    <div data-index="-1" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 341px;">
+                        <div>
+                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
+                                <a href="#" class="slideCont">
+                                    <img alt="banner" src="assets/ad/imgs/tag/1.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-index="0" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 341px;">
+                        <div>
+                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
+                                <a href="#" class="slideCont">
+                                    <img alt="banner" src="assets/ad/imgs/tag/9.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-index="1" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 341px;">
+                        <div>
+                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
+                                <a href="#" class="slideCont">
+                                    <img alt="banner" src="assets/ad/imgs/survey/07.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-index="2" class="slick-slide slick-active slick-current" tabindex="-1" aria-hidden="false" style="outline: none; width: 341px;">
+                        <div>
+                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
+                                <a href="#" class="slideCont">
+                                    <img alt="banner" src="assets/ad/imgs/tag/8.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-index="3" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 341px;">
+                        <div>
+                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
+                                <a href="#" class="slideCont">
+                                    <img alt="banner" src="assets/ad/imgs/tag/1.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-index="4" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 341px;">
+                        <div>
+                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
+                                <a href="#" class="slideCont">
+                                    <img alt="banner" src="assets/ad/imgs/tag/9.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-index="5" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 341px;">
+                        <div>
+                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
+                                <a href="#" class="slideCont">
+                                    <img alt="banner" src="assets/ad/imgs/survey/07.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-index="6" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 341px;">
+                        <div>
+                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
+                                <a href="#" class="slideCont">
+                                    <img alt="banner" src="assets/ad/imgs/tag/8.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-index="7" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 341px;">
+                        <div>
+                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
+                                <a href="#" class="slideCont">
+                                    <img alt="banner" src="assets/ad/imgs/tag/1.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" data-role="none" class="slick-arrow slick-next" style="display: block;">Next</button>
+            <ul class="slick-dots" style="display: block;">
+                <li class=""><button>1</button></li>
+                <li class=""><button>2</button></li>
+                <li class="slick-active"><button>3</button></li>
+                <li class=""><button>4</button></li>
+            </ul>
+        </div>
     </div>
+                </section>
+                <section class="sc-gtsrHT gfuSqG">
+                    <div class="radarColmn">
+                        <h2 class="title">
+                            <p>产品特性 </p>
+                            <a>更多 &gt;</a>
+                        </h2>
+                        <div class="radarUnitWarp"><dl class="radarUnit"><dt><img alt="节能" src="assets/prop/imgs/logo/jn.png"></dt><dd>节能</dd></dl><dl class="radarUnit"><dt><img alt="低碳" src="assets/prop/imgs/logo/dt.png"></dt><dd>低碳</dd></dl><dl class="radarUnit"><dt><img alt="绿色" src="assets/prop/imgs/logo/ls.png"></dt><dd>绿色</dd></dl><dl class="radarUnit"><dt><img alt="智能" src="assets/prop/imgs/logo/zn.png"></dt><dd>智能</dd></dl><dl class="radarUnit"><dt><img alt="服务" src="assets/prop/imgs/logo/fw.png"></dt><dd>服务</dd></dl></div>
+                    </div>
+                </section>
+                <section class="sc-jSFjdj jcTaHb">
+                    <h2>领跑榜 </h2>
+                    <div class="block">
+                        <ul class="nav">
+                            <li class="nav-item active">企业标准领跑者</li>
+                            <li class="nav-item">减碳</li>
+                            <li class="nav-item">智能</li>
+                            <li class="nav-item">热度</li>
+                        </ul>
+                        <div class="cont">
+                            <a href="https://ela.bbqk.com/leader/lpzm/html/repertoire.html">
+                                <img alt="领跑者" src="assets/leader/imgs/banner01.png">
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <section class="sc-dIsUp jEEywD">
+                    <h2>办实事 </h2>
+                    <a href="#" class="sc-bqGGPW iPexDg">
+                        <span class="title">
+                            <img alt="我为群众办实事·问需于民" src="assets/bss/imgs/logo/1.png">
+                            我为群众办实事·问需于民
+                        </span>
+                        <img class="right" alt="右箭头" src="assets/public/imgs/rightIcon.png">
+                    </a>
+                </section>
+                <section class="sc-dlMDgC kpPvTx">
+                    <img src="assets/temp/imgs/d001/qrcode.png" alt="qrcode">
+                </section>
+            </article>
+        </div>
+    </div>
+    <div style="text-align:center;font-size:8px">
+        <a href="https://beian.miit.gov.cn" target="_blank">京ICP备14039590号-3</a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
-      !(function (e) {
-        function t(t) {
-          for (
-            var n, l, a = t[0], f = t[1], i = t[2], c = 0, s = [];
-            c < a.length;
-            c++
-          )
-            (l = a[c]),
-              Object.prototype.hasOwnProperty.call(o, l) &&
-                o[l] &&
-                s.push(o[l][0]),
-              (o[l] = 0);
-          for (n in f)
-            Object.prototype.hasOwnProperty.call(f, n) && (e[n] = f[n]);
-          for (p && p(t); s.length; ) s.shift()();
-          return u.push.apply(u, i || []), r();
+        // 获取 cookie 的函数
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
         }
-        function r() {
-          for (var e, t = 0; t < u.length; t++) {
-            for (var r = u[t], n = !0, a = 1; a < r.length; a++) {
-              var f = r[a];
-              0 !== o[f] && (n = !1);
+
+        // 解析 URL 的函数
+        function parseUrl(url) {
+            // 这里假设 url 已经是有效的
+            return url;
+        }
+
+        // 获取 JSON 数据的函数
+        async function getJson(url) {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-            n && (u.splice(t--, 1), (e = l((l.s = r[0]))));
-          }
-          return e;
+            return await response.json();
         }
-        var n = {},
-          o = { 25: 0 },
-          u = [];
-        function l(t) {
-          if (n[t]) return n[t].exports;
-          var r = (n[t] = { i: t, l: !1, exports: {} });
-          return e[t].call(r.exports, r, r.exports, l), (r.l = !0), r.exports;
+
+        // 记录日志的函数
+        function log(message) {
+            console.log(message);
         }
-        (l.m = e),
-          (l.c = n),
-          (l.d = function (e, t, r) {
-            l.o(e, t) ||
-              Object.defineProperty(e, t, { enumerable: !0, get: r });
-          }),
-          (l.r = function (e) {
-            "undefined" != typeof Symbol &&
-              Symbol.toStringTag &&
-              Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
-              Object.defineProperty(e, "__esModule", { value: !0 });
-          }),
-          (l.t = function (e, t) {
-            if ((1 & t && (e = l(e)), 8 & t)) return e;
-            if (4 & t && "object" == typeof e && e && e.__esModule) return e;
-            var r = Object.create(null);
-            if (
-              (l.r(r),
-              Object.defineProperty(r, "default", { enumerable: !0, value: e }),
-              2 & t && "string" != typeof e)
-            )
-              for (var n in e)
-                l.d(
-                  r,
-                  n,
-                  function (t) {
-                    return e[t];
-                  }.bind(null, n)
-                );
-            return r;
-          }),
-          (l.n = function (e) {
-            var t =
-              e && e.__esModule
-                ? function () {
-                    return e.default;
-                  }
-                : function () {
-                    return e;
-                  };
-            return l.d(t, "a", t), t;
-          }),
-          (l.o = function (e, t) {
-            return Object.prototype.hasOwnProperty.call(e, t);
-          }),
-          (l.p = "https://ela.bbqk.com/");
-        var a = (this.webpackJsonpbbqk = this.webpackJsonpbbqk || []),
-          f = a.push.bind(a);
-        (a.push = t), (a = a.slice());
-        for (var i = 0; i < a.length; i++) t(a[i]);
-        var p = f;
-        r();
-      })([]);
+
+        // 触发广告点击事件
+        function trigger(ad) {
+            log(ad.id);
+            window.location.href = ad.url;
+        }
+
+        // 初始化 Adtag
+        async function initAdtag(jsonUrl) {
+            const container = document.querySelector('.slick-track');
+            let list = [];
+            const currCid = getCookie("cid");
+
+            try {
+                const { data } = await getJson(parseUrl(jsonUrl));
+                list = data;
+
+                // 清空现有内容
+                container.innerHTML = '';
+
+                // 添加新的广告项
+                list.forEach((item, idx) => {
+                    const { cids } = item;
+                    if (!cids || cids.includes(Number(currCid))) {
+                        const slideItem = document.createElement('div');
+                        slideItem.className = 'slick-slide';
+                        slideItem.setAttribute('tabindex', '-1');
+                        slideItem.setAttribute('aria-hidden', 'true');
+                        slideItem.style.outline = 'none';
+                        slideItem.style.width = '341px';
+
+                        const innerDiv = document.createElement('div');
+                        innerDiv.innerHTML = `
+                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
+                                <a href="#" onclick="trigger(${JSON.stringify(item)})" class="slideCont">
+                                    <img alt="banner" src="${item.img}">
+                                </a>
+                            </div>
+                        `;
+
+                        slideItem.appendChild(innerDiv);
+                        container.appendChild(slideItem);
+                    }
+                });
+
+                // 销毁现有的 Slick Slider 实例（如果存在）
+                if ($.fn.slick) {
+                    $('.slick-slider').slick('unslick');
+                }
+
+                // 重新初始化 Slick Slider
+                $('.slick-slider').slick({
+                    dots: true,
+                    infinite: true,
+                    speed: 500,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,  // 确保自动播放开启
+                    autoplaySpeed: 2000,  // 自动播放间隔时间（毫秒）
+                    pauseOnHover: true,  // 鼠标悬停时暂停自动播放
+                    pauseOnFocus: true,  // 获得焦点时暂停自动播放
+                });
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // 调用初始化函数
+        initAdtag('assets/ad/datas/had.json');
     </script>
-    <script src="https://ela.bbqk.com/static/js/0.9e9c9209.chunk.js"></script>
-    <script src="https://ela.bbqk.com/static/js/1.2876d517.chunk.js"></script>
-    <script src="https://ela.bbqk.com/static/js/indexDefault.db48bc02.chunk.js"></script>
-  </body>
+</body>
 </html>

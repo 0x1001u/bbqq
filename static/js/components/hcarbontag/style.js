@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import imgPublicPath from "@/libs/util";
-const tipIcon = `${imgPublicPath}/carbon-icon.png`;
-const co2 = `${imgPublicPath}/co2img.png`;
-const chct = `${imgPublicPath}/chct.png`;
+import styled from 'styled-components'
+import imgPublicPath from '@/libs/util'
+const tipIcon =`${imgPublicPath}/carbon-icon.png`
+const co2= `${imgPublicPath}/co2img.png`;
+const chct=`${imgPublicPath}/chct.png`;
 export const CarbonWarp = styled.section`
     background: #fff;
     border-radius: .12rem;

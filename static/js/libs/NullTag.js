@@ -1,4 +1,6 @@
 const NullTag = () => {
-  return <></>;
+    return (
+        <></>
+    );
 };
 export default NullTag;

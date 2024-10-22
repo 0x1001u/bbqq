@@ -1,5 +1,5 @@
-import { XydcjStyle } from "./style";
-import { log } from "../../../logs/action/default/Xydcj";
+import {XydcjStyle} from "./style";
+import {log} from "../../../logs/action/default/Xydcj";
 
 /**
  * 幸运大抽奖悬浮按钮
@@ -7,18 +7,18 @@ import { log } from "../../../logs/action/default/Xydcj";
  * @returns {JSX.Element}
  * @constructor
  */
-const Xydcj = ({ data }) => {
-  const trigger = () => {
-    log();
-    window.location.href = data.link;
-  };
-  return (
-    <>
-      <XydcjStyle onClick={() => trigger()}>
-        <img src={data.img} alt="actBtn" />
-      </XydcjStyle>
-    </>
-  );
+const Xydcj = ({data}) => {
+    const trigger = () => {
+        log();
+        window.location.href = data.link;
+    };
+    return (
+        <>
+            <XydcjStyle onClick={() => trigger()}>
+                <img src={data.img} alt="actBtn"/>
+            </XydcjStyle>
+        </>
+    );
 };
 
 export default Xydcj;

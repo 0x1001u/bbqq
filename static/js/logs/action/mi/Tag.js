@@ -1,8 +1,8 @@
-import { log as actionLog } from "../ActionLog";
-import { getCookie } from "../../../libs/Cookie";
-import { getCurrentUrl } from "../../../libs/UrlUtils";
-import { getChannelCode } from "../../../libs/channel";
-import { getClient } from "../../../libs/EnvUtils";
+import {log as actionLog} from "../ActionLog";
+import {getCookie} from '../../../libs/Cookie'
+import {getCurrentUrl} from '../../../libs/UrlUtils';
+import {getChannelCode} from "../../../libs/channel";
+import {getClient} from "../../../libs/EnvUtils";
 
 /**
  * 所属渠道：小米
@@ -14,18 +14,18 @@ import { getClient } from "../../../libs/EnvUtils";
  * @param id
  */
 export const log = (id) => {
-  actionLog({
-    uid: getCookie("uid"),
-    model: getCookie("model"),
-    cid: getCookie("cid"),
-    bid: getCookie("bid"),
-    eid: getCookie("eid"),
-    url: getCurrentUrl(),
-    level: getCookie("level"),
-    channel: getChannelCode(),
-    client: getClient(),
-    page: "p1",
-    method: "m3",
-    act: "ami13tag_" + id,
-  });
-};
+    actionLog({
+        uid: getCookie("uid"),
+        model: getCookie("model"),
+        cid: getCookie("cid"),
+        bid: getCookie("bid"),
+        eid: getCookie("eid"),
+        url: getCurrentUrl(),
+        level: getCookie("level"),
+        channel: getChannelCode(),
+        client: getClient(),
+        page: "p1",
+        method: "m3",
+        act: "ami13tag_" + id
+    });
+}

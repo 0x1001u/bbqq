@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { isPro } from "../../../libs/EnvUtils";
+import styled from 'styled-components';
+import {isPro} from '../../../libs/EnvUtils';
 
 export const HaierrsqWarp = styled.section`
      margin-top: .24rem;
@@ -124,4 +124,5 @@ export const HaierrsqWarp = styled.section`
         width: 100%; 
         height: auto; 
     }
-`;
+`
+;

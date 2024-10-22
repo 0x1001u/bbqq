@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Brandinfo3SliderWarp = styled.section`
 .slider {

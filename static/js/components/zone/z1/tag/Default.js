@@ -5,41 +5,26 @@
  * 所属模块：标签
  * 展示内容：默认标签
  */
-import { IMG_DEF_TAG_RIGHT_ARROW } from "../../../../libs/Constants";
-import { log } from "../../../../logs/action/t1/Tag";
-import { jump } from "../../../../libs/HttpUtils";
+import {IMG_DEF_TAG_RIGHT_ARROW} from "../../../../libs/Constants";
+import {log} from "../../../../logs/action/t1/Tag";
+import {jump} from "../../../../libs/HttpUtils";
 
 const Default = (props) => {
-  let { item, tagType } = props;
+    let {item, tagType} = props;
 
-  return (
-    <div
-      className="brandinfo1-wrap_tag_item-wrap"
-      key={item.title}
-      onClick={() => {
-        log(item.id, tagType);
-        jump(item.link);
-      }}
-    >
-      <div className="brandinfo1-wrap_tag_item">
-        <div className="brandinfo1-wrap_tag_item_title">
-          <img
-            className="brandinfo1-wrap_tag_item_title_img"
-            src={item.icon}
-            alt={item.title}
-          />
-          <span className="brandinfo1-wrap_tag_item_title_name">
-            {item.title}
-          </span>
+    return (
+        <div className="brandinfo1-wrap_tag_item-wrap"
+             key={item.title}
+             onClick={() => {log(item.id, tagType);jump(item.link)}}>
+            <div className="brandinfo1-wrap_tag_item">
+                <div className="brandinfo1-wrap_tag_item_title">
+                    <img className="brandinfo1-wrap_tag_item_title_img" src={item.icon} alt={item.title}/>
+                    <span className="brandinfo1-wrap_tag_item_title_name">{item.title}</span>
+                </div>
+                <img className="brandinfo1-wrap_tag_item_right" src={IMG_DEF_TAG_RIGHT_ARROW} alt="ra"/>
+            </div>
         </div>
-        <img
-          className="brandinfo1-wrap_tag_item_right"
-          src={IMG_DEF_TAG_RIGHT_ARROW}
-          alt="ra"
-        />
-      </div>
-    </div>
-  );
-};
+    )
+}
 
 export default Default;

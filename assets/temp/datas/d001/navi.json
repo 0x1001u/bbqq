@@ -1,0 +1,5 @@
+[
+{"name":"首页","url":"${cookie|home}","tips":0,"selected":1}
+,{"name":"产品介绍","url":"http://elm.bbqk.com/page/index.html?id=${cookie|singlepage}","tips":0,"selected":0}
+,{"name":"说明书","url":"http://elm.bbqk.com/manual/index.html?id=${cookie|manual}","tips":0,"selected":0}
+]

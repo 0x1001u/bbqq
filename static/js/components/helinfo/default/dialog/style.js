@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import imgPublicPath from "@/libs/util";
+import imgPublicPath from '@/libs/util'
 export const DialogWarp = styled.div`
     position: fixed;
     top:0;

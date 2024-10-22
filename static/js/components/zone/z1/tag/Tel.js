@@ -5,39 +5,27 @@
  * 所属模块：标签
  * 展示内容：400电话标签
  */
-import { IMG_DEF_TAG_RIGHT_ARROW } from "../../../../libs/Constants";
-import { log } from "../../../../logs/action/t1/Tag";
+import {IMG_DEF_TAG_RIGHT_ARROW} from "../../../../libs/Constants";
+import {log} from "../../../../logs/action/t1/Tag";
 
 const Tel = (props) => {
-  let { item, tagType } = props;
+    let {item, tagType} = props;
 
-  return (
-    <div
-      className="brandinfo1-wrap_tag_item-wrap"
-      key={item.title}
-      onClick={() => log(item.id, tagType)}
-    >
-      <a href={"tel:" + item.phone}>
-        <div className="brandinfo1-wrap_tag_item">
-          <div className="brandinfo1-wrap_tag_item_title">
-            <img
-              className="brandinfo1-wrap_tag_item_title_img"
-              src={item.icon}
-              alt={item.title}
-            />
-            <span className="brandinfo1-wrap_tag_item_title_name">
-              {item.title}
-            </span>
-          </div>
-          <img
-            className="brandinfo1-wrap_tag_item_right"
-            src={IMG_DEF_TAG_RIGHT_ARROW}
-            alt="ra"
-          />
+    return (
+        <div className="brandinfo1-wrap_tag_item-wrap"
+             key={item.title}
+             onClick={()=>log(item.id, tagType)}>
+            <a href={'tel:' + item.phone}>
+                <div className="brandinfo1-wrap_tag_item">
+                    <div className="brandinfo1-wrap_tag_item_title">
+                        <img className="brandinfo1-wrap_tag_item_title_img" src={item.icon} alt={item.title}/>
+                        <span className="brandinfo1-wrap_tag_item_title_name">{item.title}</span>
+                    </div>
+                    <img className="brandinfo1-wrap_tag_item_right" src={IMG_DEF_TAG_RIGHT_ARROW} alt="ra"/>
+                </div>
+            </a>
         </div>
-      </a>
-    </div>
-  );
-};
+    )
+}
 
 export default Tel;
