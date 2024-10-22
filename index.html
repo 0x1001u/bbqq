@@ -213,11 +213,20 @@
 
         // 获取 JSON 数据的函数
         async function getJson(url) {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+            try {
+                log(`Fetching JSON from: ${url}`);
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+                }
+                const data = await response.json();
+                log('JSON data fetched successfully:');
+                log(data);
+                return data;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                throw error;
             }
-            return await response.json();
         }
 
         // 记录日志的函数
@@ -238,56 +247,69 @@
             const currCid = getCookie("cid");
 
             try {
-                const { data } = await getJson(parseUrl(jsonUrl));
-                list = data;
+                const jsonData = await getJson(parseUrl(jsonUrl));
+                log('Fetched JSON data:');
+                log(jsonData);
 
-                // 清空现有内容
-                container.innerHTML = '';
+                // 确保 jsonData 包含 data 属性
+                if (jsonData && jsonData.data) {
+                    list = jsonData.data;
 
-                // 添加新的广告项
-                list.forEach((item, idx) => {
-                    const { cids } = item;
-                    if (!cids || cids.includes(Number(currCid))) {
-                        const slideItem = document.createElement('div');
-                        slideItem.className = 'slick-slide';
-                        slideItem.setAttribute('tabindex', '-1');
-                        slideItem.setAttribute('aria-hidden', 'true');
-                        slideItem.style.outline = 'none';
-                        slideItem.style.width = '341px';
+                    // 清空现有内容
+                    container.innerHTML = '';
 
-                        const innerDiv = document.createElement('div');
-                        innerDiv.innerHTML = `
-                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
-                                <a href="#" onclick="trigger(${JSON.stringify(item)})" class="slideCont">
-                                    <img alt="banner" src="${item.img}">
-                                </a>
-                            </div>
-                        `;
+                    // 添加新的广告项
+                    list.forEach((item, idx) => {
+                        const { cids } = item;
+                        if (!cids || cids.includes(Number(currCid))) {
+                            const slideItem = document.createElement('div');
+                            slideItem.className = 'slick-slide';
+                            slideItem.setAttribute('tabindex', '-1');
+                            slideItem.setAttribute('aria-hidden', 'true');
+                            slideItem.style.outline = 'none';
+                            slideItem.style.width = '341px';
 
-                        slideItem.appendChild(innerDiv);
-                        container.appendChild(slideItem);
+                            const innerDiv = document.createElement('div');
+                            innerDiv.innerHTML = `
+                                <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
+                                    <a href="#" onclick="trigger(${JSON.stringify(item)})" class="slideCont">
+                                        <img alt="banner" src="${item.img}">
+                                    </a>
+                                </div>
+                            `;
+
+                            slideItem.appendChild(innerDiv);
+                            container.appendChild(slideItem);
+                        }
+                    });
+
+                    // 销毁现有的 Slick Slider 实例（如果存在）
+                    if ($.fn.slick) {
+                        $('.slick-slider').slick('unslick');
                     }
-                });
 
-                // 销毁现有的 Slick Slider 实例（如果存在）
-                if ($.fn.slick) {
-                    $('.slick-slider').slick('unslick');
+                    // 重新初始化 Slick Slider
+                    $('.slick-slider').slick({
+                        dots: true,
+                        infinite: true,
+                        speed: 500,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        autoplay: true,  // 确保自动播放开启
+                        autoplaySpeed: 2000,  // 自动播放间隔时间（毫秒）
+                        pauseOnHover: true,  // 鼠标悬停时暂停自动播放
+                        pauseOnFocus: true,  // 获得焦点时暂停自动播放
+                        initialSlide: 0,  // 设置初始显示的幻灯片索引
+                    });
+
+                    // 打印调试信息
+                    log('Slick Slider initialized with the following options:');
+                    log($('.slick-slider').slick('getSlick'));
+                } else {
+                    console.error('Invalid JSON data format. Missing "data" property.');
                 }
-
-                // 重新初始化 Slick Slider
-                $('.slick-slider').slick({
-                    dots: true,
-                    infinite: true,
-                    speed: 500,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    autoplay: true,  // 确保自动播放开启
-                    autoplaySpeed: 2000,  // 自动播放间隔时间（毫秒）
-                    pauseOnHover: true,  // 鼠标悬停时暂停自动播放
-                    pauseOnFocus: true,  // 获得焦点时暂停自动播放
-                });
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error('Error initializing Adtag:', error);
             }
         }
 
