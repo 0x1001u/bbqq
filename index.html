@@ -241,6 +241,8 @@
         }
 
         // 初始化 Adtag
+        let isSlickInitialized = false;
+
         async function initAdtag(jsonUrl) {
             const container = document.querySelector('.slick-track');
             const currCid = getCookie("cid");
@@ -281,7 +283,7 @@
                     });
 
                     // 销毁现有的 Slick Slider 实例（如果存在）
-                    if ($.fn.slick) {
+                    if (isSlickInitialized && $.fn.slick) {
                         $('.slick-slider').slick('unslick');
                     }
 
@@ -299,6 +301,8 @@
                         initialSlide: 0,  // 设置初始显示的幻灯片索引
                     });
 
+                    isSlickInitialized = true;
+
                     // 打印调试信息
                     log('Slick Slider initialized with the following options:');
                     log($('.slick-slider').slick('getSlick'));
@@ -309,7 +313,6 @@
                 console.error('Error initializing Adtag:', error);
             }
         }
-
         // 调用初始化函数
         initAdtag('assets/ad/datas/had.json');
     </script>
