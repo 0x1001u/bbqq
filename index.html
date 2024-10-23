@@ -141,13 +141,6 @@
                     </div>
                 </div>
             </div>
-            <button type="button" data-role="none" class="slick-arrow slick-next" style="display: block;">Next</button>
-            <ul class="slick-dots" style="display: block;">
-                <li class=""><button>1</button></li>
-                <li class=""><button>2</button></li>
-                <li class=""><button>3</button></li>
-                <li class=""><button>4</button></li>
-            </ul>
         </div>
     </div>
                 </section>
@@ -289,15 +282,16 @@
 
                     // 重新初始化 Slick Slider
                     $('.slick-slider').slick({
-                        dots: true,
+                        dots: false,  // 去掉指示器
                         infinite: true,
                         speed: 500,
                         slidesToShow: 1,
                         slidesToScroll: 1,
-                        autoplay: true,  // 确保自动播放开启
+                        autoplay: true,  // 自动播放开启
                         autoplaySpeed: 2000,  // 自动播放间隔时间（毫秒）
-                        pauseOnHover: true,  // 鼠标悬停时暂停自动播放
-                        pauseOnFocus: true,  // 获得焦点时暂停自动播放
+                        pauseOnHover: false,  // 鼠标悬停时不暂停自动播放
+                        pauseOnFocus: false,  // 获得焦点时不暂停自动播放
+                        arrows: false,  // 去掉箭头
                         initialSlide: 0,  // 设置初始显示的幻灯片索引
                     });
 
