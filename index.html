@@ -170,7 +170,7 @@
         <a href="https://beian.miit.gov.cn" target="_blank">京ICP备14039590号-3</a>
     </div>
     <script>
-       document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function() {
     const slider = document.querySelector('.slick-track');
     const slides = document.querySelectorAll('.slick-slide');
     const slideWidth = slides[0].offsetWidth;
@@ -180,6 +180,9 @@
         currentIndex = (currentIndex + 1) % slides.length;
         slider.style.transform = `translate3d(-${currentIndex * slideWidth}px, 0, 0)`;
     }
+
+    setInterval(moveToNextSlide, 3000); // 每3秒切换一次
+});
     </script>
 </body>
 </html>
