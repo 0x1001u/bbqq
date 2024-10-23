@@ -42,7 +42,7 @@
                     </div>
                     <div class="left">
                         <h1>中国能效标识</h1>
-                        <p><label>型号：</label><span>SCWE510M Z7</span></p>
+                        <p><label>型号：</label><span>SCWF508EV Z1</span></p>
                         <p><label>备案号：</label><span>20240701-501200-27871719816300115</span></p>
                         <p><label>公告时间：</label><span>2024-07-01</span></p>
                         <p><label>生产者名称：</label><span>重庆美的通用制冷设备有限公司</span></p>
@@ -243,18 +243,15 @@
         // 初始化 Adtag
         async function initAdtag(jsonUrl) {
             const container = document.querySelector('.slick-track');
-            let list = [];
             const currCid = getCookie("cid");
 
             try {
-                const jsonData = await getJson(parseUrl(jsonUrl));
+                const list = await getJson(parseUrl(jsonUrl));
                 log('Fetched JSON data:');
-                log(jsonData);
+                log(list);
 
-                // 确保 jsonData 包含 data 属性
-                if (jsonData && jsonData.data) {
-                    list = jsonData.data;
-
+                // 确保 list 是一个数组
+                if (Array.isArray(list)) {
                     // 清空现有内容
                     container.innerHTML = '';
 
@@ -273,7 +270,7 @@
                             innerDiv.innerHTML = `
                                 <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
                                     <a href="#" onclick="trigger(${JSON.stringify(item)})" class="slideCont">
-                                        <img alt="banner" src="${item.img}">
+                                        <img alt="${item.name}" src="${item.img}">
                                     </a>
                                 </div>
                             `;
@@ -306,7 +303,7 @@
                     log('Slick Slider initialized with the following options:');
                     log($('.slick-slider').slick('getSlick'));
                 } else {
-                    console.error('Invalid JSON data format. Missing "data" property.');
+                    console.error('Invalid JSON data format. Expected an array.');
                 }
             } catch (error) {
                 console.error('Error initializing Adtag:', error);
