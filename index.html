@@ -171,18 +171,18 @@
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.querySelector('.slick-track');
-    const slides = document.querySelectorAll('.slick-slide');
-    const slideWidth = slides[0].offsetWidth;
-    let currentIndex = 0;
-
-    function moveToNextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        slider.style.transform = `translate3d(-${currentIndex * slideWidth}px, 0, 0)`;
-    }
-
-    setInterval(moveToNextSlide, 3000); // 每3秒切换一次
-});
+          const slider = document.querySelector('.slick-track');
+          const slides = document.querySelectorAll('.slick-slide');
+          const slideWidth = slides[0].offsetWidth;
+          let currentIndex = 0;
+      
+          function moveToNextSlide() {
+              currentIndex = (currentIndex + 1) % slides.length;
+              slider.style.transform = `translate3d(-${currentIndex * slideWidth}px, 0, 0)`;
+          }
+      
+          setInterval(moveToNextSlide, 3000); // 每3秒切换一次
+      });
     </script>
 </body>
 </html>
