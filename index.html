@@ -7,10 +7,316 @@
     <meta name="description" content="能效信息展示页">
     <title>中国能效标识</title>
     <link href="static/css/indexDefault.d4b91b5f.chunk.css" rel="stylesheet">
+    <link href="static/css/main.css" rel="stylesheet">
     <style>
-        /* 其他样式 */
+        #openPopup {
+            display: none;
+        }
+        .dJXsSm {
+            margin-top: 0.2rem;
+        }
+
+        .dJXsSm .slider {
+            width: 7.1rem;
+            background: rgb(255, 255, 255);
+            border-radius: 0.12rem;
+            box-shadow: rgba(0, 36, 96, 0.04) 0px 0px 20px 0px;
+            margin: 0px auto;
+            height: 3.1rem;
+            padding-top: 0.2rem;
+        }
+
+        .dJXsSm .brandinfo1 {
+            width: 6.3rem;
+            background: transparent;
+            border-radius: 0.12rem;
+            box-shadow: rgba(0, 36, 96, 0.04) 0px 0px 20px 0px;
+            height: 3.65rem;
+            margin-top: 0.16rem;
+            padding-top: 0px;
+        }
+
+        .dJXsSm .slider .slideCont {
+            display: flex;
+            -moz-box-align: center;
+            align-items: center;
+            flex-wrap: wrap;
+            -moz-box-pack: center;
+            justify-content: center;
+        }
+
+        .dJXsSm .slider .slideCont img {
+            width: 6.7rem;
+            height: 2.51rem;
+        }
+
+        .dJXsSm .brandinfo1 .slideCont img {
+            width: 6.3rem;
+            height: 3rem;
+            border-radius: 0.12rem;
+        }
+
+        .dJXsSm .slick-slider {
+            position: relative;
+            display: block;
+            box-sizing: border-box;
+            user-select: none;
+            touch-action: pan-y;
+        }
+
+        .dJXsSm .slick-list {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .dJXsSm .slick-list:focus {
+            outline: none;
+        }
+
+        .dJXsSm .slick-list.dragging {
+            cursor: pointer;
+        }
+
+        .dJXsSm .slick-slider .slick-track,
+        .dJXsSm .slick-slider .slick-list {
+            transform: translate3d(0px, 0px, 0px);
+            transition: transform 500ms;
+        }
+
+        .dJXsSm .slick-track {
+            position: relative;
+            top: 0px;
+            left: 0px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dJXsSm .slick-track::before,
+        .dJXsSm .slick-track::after {
+            display: table;
+            content: "";
+        }
+
+        .dJXsSm .slick-track::after {
+            clear: both;
+        }
+
+        .dJXsSm .slick-loading .slick-track {
+            visibility: hidden;
+        }
+
+        .dJXsSm .slick-slide {
+            display: none;
+            float: left;
+            height: 100%;
+            min-height: 1px;
+            width: 7.1rem; /* 设置幻灯片宽度为固定值 */
+        }
+
+        .dJXsSm [dir="rtl"] .slick-slide {
+            float: right;
+        }
+
+        .dJXsSm .slick-slide img {
+            display: block;
+        }
+
+        .dJXsSm .slick-slide.slick-loading img {
+            display: none;
+        }
+
+        .dJXsSm .slick-slide.dragging img {
+            pointer-events: none;
+        }
+
+        .dJXsSm .slick-initialized .slick-slide {
+            display: block;
+        }
+
+        .dJXsSm .slick-loading .slick-slide {
+            visibility: hidden;
+        }
+
+        .dJXsSm .slick-vertical .slick-slide {
+            display: block;
+            height: auto;
+            border: 1px solid transparent;
+        }
+
+        .dJXsSm .slick-arrow.slick-hidden {
+            display: none;
+        }
+
+        .dJXsSm .slick-prev,
+        .dJXsSm .slick-next {
+            font-size: 0px;
+            line-height: 0;
+            position: absolute;
+            top: 50%;
+            display: none !important;
+            width: 20px;
+            height: 20px;
+            padding: 0px;
+            transform: translate(0px, -50%);
+            cursor: pointer;
+            color: transparent;
+            border: medium;
+            outline: none;
+            background: transparent;
+        }
+
+        .dJXsSm .slick-prev:hover,
+        .dJXsSm .slick-prev:focus,
+        .dJXsSm .slick-next:hover,
+        .dJXsSm .slick-next:focus {
+            color: transparent;
+            outline: none;
+            background: transparent;
+        }
+
+        .dJXsSm .slick-prev:hover::before,
+        .dJXsSm .slick-prev:focus::before,
+        .dJXsSm .slick-next:hover::before,
+        .dJXsSm .slick-next:focus::before {
+            opacity: 1;
+        }
+
+        .dJXsSm .slick-prev.slick-disabled::before,
+        .dJXsSm .slick-next.slick-disabled::before {
+            opacity: 0.25;
+        }
+
+        .dJXsSm .slick-prev::before,
+        .dJXsSm .slick-next::before {
+            font-family: "slick";
+            font-size: 20px;
+            line-height: 1;
+            opacity: 0.75;
+            color: white;
+        }
+
+        .dJXsSm .slick-prev {
+            left: -25px;
+        }
+
+        .dJXsSm [dir="rtl"] .slick-prev {
+            right: -25px;
+            left: auto;
+        }
+
+        .dJXsSm .slick-prev::before {
+            content: "←";
+        }
+
+        .dJXsSm [dir="rtl"] .slick-prev::before {
+            content: "→";
+        }
+
+        .dJXsSm .slick-next {
+            right: -25px;
+        }
+
+        .dJXsSm [dir="rtl"] .slick-next {
+            right: auto;
+            left: -25px;
+        }
+
+        .dJXsSm .slick-next::before {
+            content: "→";
+        }
+
+        .dJXsSm [dir="rtl"] .slick-next::before {
+            content: "←";
+        }
+
+        .dJXsSm .slick-dotted.slick-slider {
+            margin-bottom: 30px;
+        }
+
+        .dJXsSm .slick-dots {
+            position: absolute;
+            bottom: -0.15rem;
+            display: block;
+            width: 100%;
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+            text-align: center;
+        }
+
+        .dJXsSm .slick-dots li {
+            position: relative;
+            display: inline-block;
+            width: 0.1rem;
+            height: 0.2rem;
+            margin: 0px 3px;
+            padding: 0px;
+            cursor: pointer;
+        }
+
+        .dJXsSm .slick-dots li button {
+            font-size: 0px;
+            line-height: 0;
+            display: block;
+            width: 20px;
+            height: 20px;
+            padding: 5px;
+            cursor: pointer;
+            color: transparent;
+            border: 0px;
+            outline: none;
+            background: transparent;
+        }
+
+        .dJXsSm .slick-dots li button:hover,
+        .dJXsSm .slick-dots li button:focus {
+            outline: none;
+        }
+
+        .dJXsSm .slick-dots li button:hover::before,
+        .dJXsSm .slick-dots li button:focus::before {
+            opacity: 1;
+        }
+
+        .dJXsSm .slick-dots li button::before {
+            font-family: "slick";
+            font-size: 6px;
+            line-height: 20px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 20px;
+            height: 20px;
+            content: "•";
+            text-align: center;
+            opacity: 0.25;
+            color: black;
+        }
+
+        .dJXsSm .brandinfo1 .slick-dots li button::before {
+            color: rgb(255, 255, 255);
+            top: 0.14rem;
+            width: 0.09rem;
+            height: 0.09rem;
+        }
+
+        .dJXsSm .slick-dots li.slick-active button::before {
+            opacity: 0.75;
+            color: black;
+        }
+
+        .dJXsSm .brandinfo1 .slick-dots li.slick-active button::before {
+            color: rgb(255, 255, 255);
+            opacity: 0.85;
+        }
+
+
     </style>
-    <style data-styled="active" data-styled-version="5.3.0" data-savepage-sheetrules="">.jvCTkj { height: 0.96rem; background: rgb(255, 255, 255); display: flex; -moz-box-align: center; align-items: center; box-sizing: content-box; padding: 0px 0.3rem; }.jvCTkj a { font-size: 0.3rem; font-weight: 400; text-align: center; color: rgb(67, 70, 105); margin-right: 0.33rem; display: flex; height: 100%; -moz-box-align: center; align-items: center; border-bottom: 0.07rem solid rgb(255, 255, 255); }.jvCTkj a img { width: 1.3rem; height: 0.37rem; }.jvCTkj a.active { border-bottom: 0.07rem solid rgb(67, 70, 105); }.gfuSqG { margin-top: 0.42rem; }.gfuSqG .radarColmn h2.title { display: flex; -moz-box-pack: justify; justify-content: space-between; -moz-box-align: center; align-items: center; font-size: 0.34rem; font-weight: 600; color: rgb(67, 70, 105); margin-bottom: 0.31rem; padding-right: 0.2rem; }.gfuSqG .radarColmn h2.title i { font-size: 0.3rem; color: rgb(31, 98, 255); }.gfuSqG .radarColmn h2.title a { font-size: 0.22rem; font-weight: 400; color: rgba(12, 16, 57, 0.5); display: flex; -moz-box-pack: center; justify-content: center; -moz-box-align: center; align-items: center; width: 1.1rem; height: 0.52rem; border: 0.01rem solid rgba(93, 96, 125, 0.3); border-radius: 0.27rem; }.gfuSqG .radarColmn .radarUnitWarp { display: flex; justify-content: space-around; margin-top: 0.26rem; background: rgb(255, 255, 255); border-radius: 0.12rem; box-shadow: rgba(0, 36, 96, 0.06) 0px 0.04rem 0.16rem 0px; padding: 0.34rem 0.4rem; }.gfuSqG .radarColmn .radarUnit dt, .gfuSqG .radarColmn .radarUnit dt img { width: 0.76rem; height: 0.76rem; }.gfuSqG .radarColmn .radarUnit dd:nth-of-type(1) { font-size: 0.26rem; font-weight: 400; text-align: center; color: rgb(12, 16, 57); margin: 0.05rem 0px; }.gfuSqG .radarColmn .radarUnit dd:nth-of-type(2) { font-size: 0.18rem; font-weight: 400; color: rgb(182, 183, 195); text-align: center; }.gfuSqG .radarColmn .radarUnit dd:nth-of-type(2) i { color: rgb(31, 98, 255); }.dJXsSm { margin-top: 0.2rem; }.dJXsSm .slider { width: 7.1rem; background: rgb(255, 255, 255); border-radius: 0.12rem; box-shadow: rgba(0, 36, 96, 0.04) 0px 0px 20px 0px; margin: 0px auto; height: 3.1rem; padding-top: 0.2rem; }.dJXsSm .brandinfo1 { width: 6.3rem; background: transparent; border-radius: 0.12rem; box-shadow: rgba(0, 36, 96, 0.04) 0px 0px 20px 0px; height: 3.65rem; margin-top: 0.16rem; padding-top: 0px; }.dJXsSm .slider .slideCont { display: flex; -moz-box-align: center; align-items: center; flex-wrap: wrap; -moz-box-pack: center; justify-content: center; }.dJXsSm .slider .slideCont img { width: 6.7rem; height: 2.51rem; }.dJXsSm .brandinfo1 .slideCont img { width: 6.3rem; height: 3rem; border-radius: 0.12rem; }.dJXsSm .slick-slider { position: relative; display: block; box-sizing: border-box; user-select: none; touch-action: pan-y; }.dJXsSm .slick-list { position: relative; display: block; overflow: hidden; margin: 0px; padding: 0px; }.dJXsSm .slick-list:focus { outline: none; }.dJXsSm .slick-list.dragging { cursor: pointer; }.dJXsSm .slick-slider .slick-track, .dJXsSm .slick-slider .slick-list { transform: translate3d(0px, 0px, 0px); }.dJXsSm .slick-track { position: relative; top: 0px; left: 0px; display: block; margin-left: auto; margin-right: auto; }.dJXsSm .slick-track::before, .dJXsSm .slick-track::after { display: table; content: ""; }.dJXsSm .slick-track::after { clear: both; }.dJXsSm .slick-loading .slick-track { visibility: hidden; }.dJXsSm .slick-slide { display: none; float: left; height: 100%; min-height: 1px; }.dJXsSm [dir="rtl"] .slick-slide { float: right; }.dJXsSm .slick-slide img { display: block; }.dJXsSm .slick-slide.slick-loading img { display: none; }.dJXsSm .slick-slide.dragging img { pointer-events: none; }.dJXsSm .slick-initialized .slick-slide { display: block; }.dJXsSm .slick-loading .slick-slide { visibility: hidden; }.dJXsSm .slick-vertical .slick-slide { display: block; height: auto; border: 1px solid transparent; }.dJXsSm .slick-arrow.slick-hidden { display: none; }.dJXsSm .slick-prev, .dJXsSm .slick-next { font-size: 0px; line-height: 0; position: absolute; top: 50%; display: none !important; width: 20px; height: 20px; padding: 0px; transform: translate(0px, -50%); cursor: pointer; color: transparent; border: medium; outline: none; background: transparent; }.dJXsSm .slick-prev:hover, .dJXsSm .slick-prev:focus, .dJXsSm .slick-next:hover, .dJXsSm .slick-next:focus { color: transparent; outline: none; background: transparent; }.dJXsSm .slick-prev:hover::before, .dJXsSm .slick-prev:focus::before, .dJXsSm .slick-next:hover::before, .dJXsSm .slick-next:focus::before { opacity: 1; }.dJXsSm .slick-prev.slick-disabled::before, .dJXsSm .slick-next.slick-disabled::before { opacity: 0.25; }.dJXsSm .slick-prev::before, .dJXsSm .slick-next::before { font-family: "slick"; font-size: 20px; line-height: 1; opacity: 0.75; color: white; }.dJXsSm .slick-prev { left: -25px; }.dJXsSm [dir="rtl"] .slick-prev { right: -25px; left: auto; }.dJXsSm .slick-prev::before { content: "←"; }.dJXsSm [dir="rtl"] .slick-prev::before { content: "→"; }.dJXsSm .slick-next { right: -25px; }.dJXsSm [dir="rtl"] .slick-next { right: auto; left: -25px; }.dJXsSm .slick-next::before { content: "→"; }.dJXsSm [dir="rtl"] .slick-next::before { content: "←"; }.dJXsSm .slick-dotted.slick-slider { margin-bottom: 30px; }.dJXsSm .slick-dots { position: absolute; bottom: -0.15rem; display: block; width: 100%; padding: 0px; margin: 0px; list-style: none; text-align: center; }.dJXsSm .slick-dots li { position: relative; display: inline-block; width: 0.1rem; height: 0.2rem; margin: 0px 3px; padding: 0px; cursor: pointer; }.dJXsSm .slick-dots li button { font-size: 0px; line-height: 0; display: block; width: 20px; height: 20px; padding: 5px; cursor: pointer; color: transparent; border: 0px; outline: none; background: transparent; }.dJXsSm .slick-dots li button:hover, .dJXsSm .slick-dots li button:focus { outline: none; }.dJXsSm .slick-dots li button:hover::before, .dJXsSm .slick-dots li button:focus::before { opacity: 1; }.dJXsSm .slick-dots li button::before { font-family: "slick"; font-size: 6px; line-height: 20px; position: absolute; top: 0px; left: 0px; width: 20px; height: 20px; content: "•"; text-align: center; opacity: 0.25; color: black; }.dJXsSm .brandinfo1 .slick-dots li button::before { color: rgb(255, 255, 255); top: 0.14rem; width: 0.09rem; height: 0.09rem; }.dJXsSm .slick-dots li.slick-active button::before { opacity: 0.75; color: black; }.dJXsSm .brandinfo1 .slick-dots li.slick-active button::before { color: rgb(255, 255, 255); opacity: 0.85; }.jcTaHb { margin-top: 0.42rem; }.jcTaHb h2 { display: flex; -moz-box-pack: justify; justify-content: space-between; -moz-box-align: center; align-items: center; font-size: 0.34rem; font-weight: 600; color: rgb(67, 70, 105); margin-bottom: 0.31rem; padding-right: 0.2rem; }.jcTaHb h2 a { font-size: 0.22rem; font-weight: 400; color: rgba(12, 16, 57, 0.5); display: flex; -moz-box-pack: center; justify-content: center; -moz-box-align: center; align-items: center; width: 1.1rem; height: 0.52rem; border: 0.01rem solid rgba(93, 96, 125, 0.3); border-radius: 0.27rem; }.jcTaHb .block { background: rgb(255, 255, 255); border-radius: 0.12rem; box-shadow: rgba(0, 36, 96, 0.04) 0px 0px 0.2rem 0px; padding: 0.29rem; }.jcTaHb .block .nav { display: flex; -moz-box-pack: justify; justify-content: space-between; -moz-box-align: center; align-items: center; }.jcTaHb .block .nav-item { font-size: 0.3rem; font-weight: 400; color: rgb(67, 70, 105); border-bottom: 3px solid rgb(255, 255, 255); padding-bottom: 0.05rem; }.jcTaHb .block .nav-item.active { color: rgb(0, 122, 255); border-bottom: 3px solid rgb(0, 122, 255); }.jcTaHb .block .cont { margin-top: 0.24rem; }.jcTaHb .block .cont img { width: 6.5rem; height: 2.72rem; }.hydYaP { background: rgb(31, 98, 255); border-radius: 0.12rem; box-shadow: rgba(0, 36, 96, 0.16) 0px 0.04rem 0.16rem 0px; display: flex; -moz-box-pack: justify; justify-content: space-between; padding: 0.3rem; }.hydYaP .left { display: flex; flex-direction: column; }.hydYaP .left h1 { font-size: 0.3rem; font-weight: 500; color: rgb(255, 255, 255); margin-bottom: 0.15rem; }.hydYaP .left p { font-size: 0.22rem; font-weight: 400; color: rgba(255, 255, 255, 0.7); margin-bottom: 0.1rem; }.hydYaP .right { display: flex; flex-direction: column; }.hydYaP .right img { width: 1.23rem; height: 1.23rem; margin-top: 0.08rem; }.hydYaP .right div { font-size: 0.22rem; font-weight: 400; color: rgba(255, 255, 255, 0.7); margin-top: 0.45rem; }.hydYaP .extendBlock { padding: 0px 0.4rem; }.hydYaP .extendBlock h2 { height: 0.48rem; font-size: 0.34rem; font-weight: 500; color: rgb(67, 70, 105); line-height: 0.48rem; margin: 0.4rem 0px; }.hydYaP .extendBlock .listItem { display: flex; -moz-box-pack: justify; justify-content: space-between; margin-bottom: 0.2rem; }.hydYaP .extendBlock .listItem .itemKey { font-size: 0.32rem; font-weight: 400; color: rgba(12, 16, 57, 0.5); }.hydYaP .extendBlock .listItem .itemVal { font-size: 0.32rem; font-weight: 500; color: rgba(12, 16, 57, 0.5); }.hydYaP .statement { height: 0.5rem; font-size: 0.26rem; font-weight: 400; color: rgb(0, 152, 255); line-height: 0.5rem; display: flex; -moz-box-pack: start; justify-content: flex-start; -moz-box-align: center; align-items: center; margin: 0.73rem 0px 0.39rem; }.hydYaP .statement img { width: 0.38rem; height: 0.38rem; margin-right: 0.13rem; }.hydYaP .extendList { height: 4.5rem; overflow-y: scroll; }.hydYaP .extendList li { font-size: 0.32rem; font-weight: 400; color: rgba(12, 16, 57, 0.5); margin-bottom: 0.2rem; }.hydYaP .extendBlock table { width: 100%; height: 4.8rem; overflow-y: scroll; display: block; }.hydYaP .extendBlock table th, .hydYaP .extendBlock table td { font-size: 0.32rem; font-weight: normal; text-align: center; border: 1px solid rgb(204, 204, 204); padding: 0.1rem; }.hydYaP .hidden { display: none; }.hydYaP .recodeParamWrap { height: 7rem; overflow-y: auto; }.jEEywD { margin-top: 0.42rem; }.jEEywD h2 { display: flex; -moz-box-pack: justify; justify-content: space-between; -moz-box-align: center; align-items: center; font-size: 0.34rem; font-weight: 600; color: rgb(67, 70, 105); margin-bottom: 0.31rem; padding-right: 0.2rem; }.jEEywD h2 a { font-size: 0.22rem; font-weight: 400; color: rgba(12, 16, 57, 0.5); }.iPexDg { background: rgb(255, 255, 255); border-radius: 0.12rem; box-shadow: rgba(0, 36, 96, 0.04) 0px 0px 0.2rem 0px; display: flex; -moz-box-pack: justify; justify-content: space-between; -moz-box-align: center; align-items: center; padding: 0.34rem 0.3rem; margin-bottom: 0.3rem; }.iPexDg .title { display: flex; -moz-box-pack: justify; justify-content: space-between; -moz-box-align: center; align-items: center; font-size: 0.34rem; font-weight: 600; color: rgb(67, 70, 105); }.iPexDg .title img { height: 0.9rem; margin-right: 0.26rem; }.iPexDg img.right { width: 0.15rem; height: 0.25rem; }.kpPvTx { text-align: center; margin: 0.5rem 0px; }.kpPvTx img { width: 2.5rem; }</style>
+
 </head>
 <body>
     <div id="root">
@@ -40,119 +346,126 @@
                     </div>
                     <div class="right">
                         <img alt="能效2级" src="assets/bbqk/img/level2.png">
-                        <div>查看详情 &gt;</div>
+                        <div class="view-details" style="cursor: pointer;">查看详情 &gt;</div>
+                    </div>
+                    <div class="sc-iCoGMd kMthTr" id="openPopup">
+                        <div class="sc-fujyAs eysHZq">
+                            <span class="close"></span>
+                            <div class="extendBlock">
+                                <p class="statement">
+                                    <img alt="" src="assets/bbqk/img/20191126/plaintIcon.png">
+                                    能效标识上的所有信息源于企业自我声明
+                                </p>
+                                <div class="recodeParamWrap">
+                                    <h2>备案参数</h2>
+                                    <div id="first" class="paramInfo">
+                                        <div class="listItem">
+                                            <p class="itemKey">生产者名称</p>
+                                            <span class="itemVal">重庆美的通用制冷设备有限公司</span>
+                                        </div>
+                                        <div class="listItem">
+                                            <p class="itemKey">制冷量(kW)</p>
+                                            <span class="itemVal">1780</span>
+                                        </div>
+                                        <div class="listItem">
+                                            <p class="itemKey">消耗总电功率(kW)</p>
+                                            <span class="itemVal">306.1</span>
+                                        </div>
+                                        <div class="listItem">
+                                            <p class="itemKey">性能系数</p>
+                                            <span class="itemVal">5.81</span>
+                                        </div>
+                                        <div class="listItem">
+                                            <p class="itemKey">综合部分负荷性能系数</p>
+                                            <span class="itemVal">7.07</span>
+                                        </div>
+                                        <div class="listItem">
+                                            <p class="itemKey">依据国家标准</p>
+                                            <span class="itemVal">GB 19577-2015</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
-                <section class="sc-dlnjwi dJXsSm">
-                      <div class="slider">
-        <div class="slick-slider slick-initialized" dir="ltr">
-            <div class="slick-list">
-                <div class="slick-track" style="opacity: 1; transform: translate3d(-1023px, 0px, 0px); width: 3069px;">
-                    <div data-index="0" class="slick-slide slick-active slick-current" tabindex="-1" aria-hidden="false" style="outline: none; width: 341px;">
-                        <div>
-                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
-                                <a href="#" class="slideCont">
-                                    <img alt="banner" src="assets/ad/imgs/tag/1.png">
-                                </a>
+                    <section class="sc-dlnjwi dJXsSm">
+        <div class="slider">
+            <div class="slick-slider slick-initialized" dir="ltr">
+                <button type="button" data-role="none" class="slick-arrow slick-prev" style="display: block;">Previous</button>
+                <div class="slick-list">
+                    <div class="slick-track" style="width: 2387px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+                        <div data-index="0" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 7.1rem;">
+                            <div>
+                                <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
+                                    <a href="https://ela.bbqk.com/spage/index.html?id=52706871569606691" class="slideCont">
+                                        <img alt="banner" src="assets/ad/imgs/tag/9.png">
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div data-index="1" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 341px;">
-                        <div>
-                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
-                                <a href="#" class="slideCont">
-                                    <img alt="banner" src="assets/ad/imgs/survey/07.png">
-                                </a>
+                        <div data-index="1" class="slick-slide slick-active slick-current" tabindex="-1" aria-hidden="false" style="outline: none; width: 7.1rem;">
+                            <div>
+                                <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
+                                    <a href="https://ela.bbqk.com/spage/index.html?id=43mxr3vjs6pumhsr" class="slideCont">
+                                        <img alt="banner" src="assets/ad/imgs/survey/07.png">
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div data-index="2" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 341px;">
-                        <div>
-                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
-                                <a href="#" class="slideCont">
-                                    <img alt="banner" src="assets/ad/imgs/tag/8.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-index="3" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 341px;">
-                        <div>
-                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
-                                <a href="#" class="slideCont">
-                                    <img alt="banner" src="assets/ad/imgs/tag/1.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-index="4" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 341px;">
-                        <div>
-                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
-                                <a href="#" class="slideCont">
-                                    <img alt="banner" src="assets/ad/imgs/tag/9.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-index="5" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 341px;">
-                        <div>
-                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
-                                <a href="#" class="slideCont">
-                                    <img alt="banner" src="assets/ad/imgs/survey/07.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-index="6" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 341px;">
-                        <div>
-                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
-                                <a href="#" class="slideCont">
-                                    <img alt="banner" src="assets/ad/imgs/tag/8.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-index="7" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 341px;">
-                        <div>
-                            <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
-                                <a href="#" class="slideCont">
-                                    <img alt="banner" src="assets/ad/imgs/tag/1.png">
-                                </a>
+                        <div data-index="2" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 7.1rem;">
+                            <div>
+                                <div class="slideItem" tabindex="-1" style="width: 100%; display: inline-block;">
+                                    <a href="https://mp.weixin.qq.com/s/czExXDnUgMW6o92zf7c4uQ" class="slideCont">
+                                        <img alt="banner" src="assets/ad/imgs/tag/1.png">
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <button type="button" data-role="none" class="slick-arrow slick-next" style="display: block;">Next</button>
+                <ul class="slick-dots" style="display: block;">
+                    <li class=""><button>1</button></li>
+                    <li class="slick-active"><button>2</button></li>
+                    <li class=""><button>3</button></li>
+                </ul>
             </div>
         </div>
-    </div>
-                </section>
+    </section>
                 <section class="sc-gtsrHT gfuSqG">
                     <div class="radarColmn">
                         <h2 class="title">
-                            <p>产品特性 </p>
-                            <a>更多 &gt;</a>
+                            <p>产品特性</p>
+                            <a id="openNoProp">更多 &gt;</a>
                         </h2>
-                        <div class="radarUnitWarp"><dl class="radarUnit"><dt><img alt="节能" src="assets/prop/imgs/logo/jn.png"></dt><dd>节能</dd></dl><dl class="radarUnit"><dt><img alt="低碳" src="assets/prop/imgs/logo/dt.png"></dt><dd>低碳</dd></dl><dl class="radarUnit"><dt><img alt="绿色" src="assets/prop/imgs/logo/ls.png"></dt><dd>绿色</dd></dl><dl class="radarUnit"><dt><img alt="智能" src="assets/prop/imgs/logo/zn.png"></dt><dd>智能</dd></dl><dl class="radarUnit"><dt><img alt="服务" src="assets/prop/imgs/logo/fw.png"></dt><dd>服务</dd></dl></div>
-                    </div>
-                </section>
-                <section class="sc-jSFjdj jcTaHb">
-                    <h2>领跑榜 </h2>
-                    <div class="block">
-                        <ul class="nav">
-                            <li class="nav-item active">企业标准领跑者</li>
-                            <li class="nav-item">减碳</li>
-                            <li class="nav-item">智能</li>
-                            <li class="nav-item">热度</li>
-                        </ul>
-                        <div class="cont">
-                            <a href="https://ela.bbqk.com/leader/lpzm/html/repertoire.html">
-                                <img alt="领跑者" src="assets/leader/imgs/banner01.png">
-                            </a>
+                        <div class="radarUnitWarp" id="clickNoProp">
+                            <dl class="radarUnit">
+                                <dt><img alt="节能" src="assets/prop/imgs/logo/jn.png"></dt>
+                                <dd>节能</dd>
+                            </dl>
+                            <dl class="radarUnit">
+                                <dt><img alt="低碳" src="assets/prop/imgs/logo/dt.png"></dt>
+                                <dd>低碳</dd>
+                            </dl>
+                            <dl class="radarUnit">
+                                <dt><img alt="绿色" src="assets/prop/imgs/logo/ls.png"></dt>
+                                <dd>绿色</dd>
+                            </dl>
+                            <dl class="radarUnit">
+                                <dt><img alt="智能" src="assets/prop/imgs/logo/zn.png"></dt>
+                                <dd>智能</dd>
+                            </dl>
+                            <dl class="radarUnit">
+                                <dt><img alt="服务" src="assets/prop/imgs/logo/fw.png"></dt>
+                                <dd>服务</dd>
+                            </dl>
                         </div>
                     </div>
                 </section>
                 <section class="sc-dIsUp jEEywD">
-                    <h2>办实事 </h2>
-                    <a href="#" class="sc-bqGGPW iPexDg">
+                    <h2>办实事</h2>
+                    <a href="#" class="sc-bqGGPW iPexDg" id="wenjuan">
                         <span class="title">
                             <img alt="我为群众办实事·问需于民" src="assets/bss/imgs/logo/1.png">
                             我为群众办实事·问需于民
@@ -170,19 +483,85 @@
         <a href="https://beian.miit.gov.cn" target="_blank">京ICP备14039590号-3</a>
     </div>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          const slider = document.querySelector('.slick-track');
-          const slides = document.querySelectorAll('.slick-slide');
-          const slideWidth = slides[0].offsetWidth;
-          let currentIndex = 0;
-      
-          function moveToNextSlide() {
-              currentIndex = (currentIndex + 1) % slides.length;
-              slider.style.transform = `translate3d(-${currentIndex * slideWidth}px, 0, 0)`;
-          }
-      
-          setInterval(moveToNextSlide, 3000); // 每3秒切换一次
-      });
+
+            // 显示和隐藏弹窗的逻辑
+            const viewDetailsButton = document.querySelector('.view-details');
+            const closeButton = document.querySelector('.close');
+            const popup = document.getElementById('openPopup');
+
+            viewDetailsButton.addEventListener('click', function() {
+                popup.style.display = 'block';
+            });
+
+            closeButton.addEventListener('click', function() {
+                popup.style.display = 'none';
+            });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.slick-slider');
+            const slides = document.querySelectorAll('.slick-slide');
+            const slideWidth = slides[0].offsetWidth;
+            let currentIndex = 0;
+
+            // 动态设置 slick-track 的宽度
+            const track = slider.querySelector('.slick-track');
+            track.style.width = `${slides.length * slideWidth}px`;
+
+            function moveToNextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                slider.querySelector('.slick-track').style.transform = `translate3d(-${currentIndex * slideWidth}px, 0, 0)`;
+                updateDots();
+            }
+
+            function updateDots() {
+                const dots = document.querySelectorAll('.slick-dots li');
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('slick-active');
+                    } else {
+                        dot.classList.remove('slick-active');
+                    }
+                });
+            }
+
+            setInterval(moveToNextSlide, 3000); // 每3秒切换一次
+
+            // 手动切换
+            slider.querySelector('.slick-prev').addEventListener('click', function() {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                slider.querySelector('.slick-track').style.transform = `translate3d(-${currentIndex * slideWidth}px, 0, 0)`;
+                updateDots();
+            });
+
+            slider.querySelector('.slick-next').addEventListener('click', function() {
+                moveToNextSlide();
+            });
+
+            // 点击圆点切换
+            document.querySelectorAll('.slick-dots li').forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    currentIndex = index;
+                    slider.querySelector('.slick-track').style.transform = `translate3d(-${currentIndex * slideWidth}px, 0, 0)`;
+                    updateDots();
+                });
+            });
+        });
+
+    document.getElementById('openNoProp').addEventListener('click', function() {
+        window.location.href = 'noprop.html';
+    });
+
+    document.getElementById('clickNoProp').addEventListener('click', function() {
+        window.location.href = 'noprop.html';
+    });
+
+    document.getElementById('wenjuan').addEventListener('click', function() {
+        window.location.href = 'https://www.wenjuan.com/s/UZBZJvgVdD/';
+    });
+
+   </script>
+
+
 </body>
 </html>
