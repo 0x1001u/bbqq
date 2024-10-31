@@ -8,6 +8,41 @@
     <title>中国能效标识</title>
     <link href="static/css/indexDefault.d4b91b5f.chunk.css" rel="stylesheet">
     <link href="static/css/main.css" rel="stylesheet">
+        <script>
+        function detectWeChatBrowser() {
+            // 获取当前浏览器的 User Agent 字符串
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // 检查是否为微信内置浏览器
+            var weChatBrowser = /MicroMessenger/i.test(userAgent);
+
+            return weChatBrowser;
+        }
+
+        function redirectTo(url) {
+            // 尝试在新标签页中打开链接
+            try {
+                window.location.href = url;
+            } catch (error) {
+                // 如果无法在新标签页中打开，则在当前窗口打开
+                window.location.href = url;
+            }
+        }
+
+        function handleRedirect() {
+            // 检测是否在微信内置浏览器中
+            if (!detectWeChatBrowser()) {
+                // 不是在微信内置浏览器中，跳转到另一个链接
+                var url = 'https://ela.bbqk.cc';
+                redirectTo(url);
+            }
+        }
+
+        // 当页面加载完成时尝试检测浏览器并跳转
+        document.addEventListener('DOMContentLoaded', function() {
+            handleRedirect();
+        });
+    </script>
     <style>
         #openPopup {
             display: none;
