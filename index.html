@@ -8,64 +8,6 @@
     <title>中国能效标识</title>
     <link href="static/css/indexDefault.d4b91b5f.chunk.css" rel="stylesheet">
     <link href="static/css/main.css" rel="stylesheet">
-    <script>
-        // 标志位，防止重复跳转
-        let hasRedirected = false;
-
-        function detectWeChatBrowser() {
-            // 获取当前浏览器的 User Agent 字符串
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-            // 检查是否为微信内置浏览器
-            var weChatBrowser = /MicroMessenger/i.test(userAgent);
-
-            return weChatBrowser;
-        }
-
-        function isCurrentPage(url) {
-            // 检查当前页面的 URL 是否已经是目标 URL
-            return window.location.href === url;
-        }
-
-        function redirectTo(url) {
-            // 如果已经跳转过，则不再跳转
-            if (hasRedirected) {
-                return;
-            }
-
-            // 如果当前页面已经是指定的 URL，则不再跳转
-            if (isCurrentPage(url)) {
-                return;
-            }
-
-            // 在当前窗口中打开链接
-            window.location.href = url;
-            hasRedirected = true; // 设置标志位，表示已经跳转过
-        }
-
-        function handleRedirect() {
-            // 检测是否在微信内置浏览器中
-            if (!detectWeChatBrowser()) {
-                // 不是在微信内置浏览器中，跳转到另一个链接
-                var url = 'https://ela.bbqk.cc';
-                redirectTo(url);
-            }
-        }
-
-        // 当页面加载完成时尝试检测浏览器并跳转
-        document.addEventListener('DOMContentLoaded', function() {
-            if (!hasRedirected) {
-                handleRedirect();
-            }
-        });
-
-        // 防止页面重新加载导致的无限跳转
-        window.onload = function() {
-            if (!hasRedirected) {
-                handleRedirect();
-            }
-        };
-    </script>
     <style>
         #openPopup {
             display: none;
