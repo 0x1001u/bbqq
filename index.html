@@ -9,9 +9,6 @@
     <link href="static/css/indexDefault.d4b91b5f.chunk.css" rel="stylesheet">
     <link href="static/css/main.css" rel="stylesheet">
     <script>
-        // 标志位，防止重复跳转
-        let hasRedirected = false;
-
         function detectWeChatBrowser() {
             // 获取当前浏览器的 User Agent 字符串
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -22,20 +19,23 @@
             return weChatBrowser;
         }
 
+        function isCurrentPage(url) {
+            // 检查当前页面的 URL 是否已经是目标 URL
+            return window.location.href === url;
+        }
+
         function redirectTo(url) {
-            // 如果已经跳转过，则不再跳转
-            if (hasRedirected) {
+            // 如果当前页面已经是指定的 URL，则不再跳转
+            if (isCurrentPage(url)) {
                 return;
             }
 
             // 尝试在新标签页中打开链接
             try {
-                window.location.href =  url
-                hasRedirected = true; // 设置标志位，表示已经跳转过
+                window.location.href = url;
             } catch (error) {
                 // 如果无法在新标签页中打开，则在当前窗口打开
                 window.location.href = url;
-                hasRedirected = true; // 设置标志位，表示已经跳转过
             }
         }
 
