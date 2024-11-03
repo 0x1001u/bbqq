@@ -44,7 +44,9 @@
             if (!detectWeChatBrowser()) {
                 // 不是在微信内置浏览器中，跳转到另一个链接
                 var url = 'https://ela.bbqk.cc';
-                redirectTo(url);
+                if (!isCurrentPage(url)) {
+                    redirectTo(url);
+                }
             }
         }
 
@@ -52,6 +54,14 @@
         document.addEventListener('DOMContentLoaded', function() {
             handleRedirect();
         });
+
+        // 防止页面重新加载导致的无限跳转
+        window.onload = function() {
+            if (!detectWeChatBrowser() && !isCurrentPage('https://ela.bbqk.cc')) {
+                // 防止页面重新加载导致的无限跳转
+                window.location.replace('https://ela.bbqk.cc');
+            }
+        };
     </script>
     <style>
         #openPopup {
